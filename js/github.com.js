@@ -8,11 +8,20 @@
 */
 
 function pullTarget() {
-  var targetInfo = $(".pull-description > p > span").last();
+  var targetInfo = jQuery(".pull-description > p > span").last();
   var user = targetInfo.children('span').first().text();
   var branch = targetInfo.children('span').last().text();
-  var repo = $("a.js-current-repository").text();
-  return "https://github.com/" + user + "/" + repo ".git " + branch;
+  var repo = jQuery("a.js-current-repository").text();
+  if (repo == "" || user == "" || branch == "") {
+    return false;
+  }
+  return "https://github.com/" + user + "/" + repo + ".git " + branch;
 }
 
-console.log(pullTarget());
+var target = pullTarget();
+
+if (target) {
+  jQuery(".pull-description > p > span").on("click", function() {
+    window.prompt ("Copy to clipboard: Ctrl+C, Enter", target);
+  });
+}

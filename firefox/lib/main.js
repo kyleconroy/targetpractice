@@ -7,5 +7,6 @@ var self = require("self");
 // The script replaces the page contents with a message
 pageMod.PageMod({
   include: "*.github.com",
-  contentScriptFile: self.data.url("github.com.js")
+  contentScriptWhen: 'ready',
+  contentScriptFile: [self.data.url("jquery.js"), self.data.url("github.com.js")]
 });
