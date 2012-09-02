@@ -9,3 +9,9 @@ which makes this happen
 which contains this
 
     https://github.com/campadrenalin/hawkthorne-journey.git bug40
+
+# Build
+
+    make
+
+Drag `targetpractice.xpi` onto the Firefox icon.
